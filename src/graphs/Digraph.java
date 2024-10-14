@@ -27,12 +27,11 @@ public class Digraph<V, E> implements IGraph<V, E>
     }
 
     @Override
-    public boolean addEdge(V first, V second, E data,
-                           int weight)
+    public boolean addEdge(V first, V second, int weight)
     {
         if (first.equals(second) ||
-                !containsVertex(first) || !containsVertex(second) ||
-                containsEdge(first, second))
+            !containsVertex(first) || !containsVertex(second) ||
+            containsEdge(first, second))
         {
             return false; //duplicate edge or one of the vertices is missing!
         }
@@ -40,7 +39,6 @@ public class Digraph<V, E> implements IGraph<V, E>
         //add edge to both adjacency lists
         Edge<V> edge = new Edge<>(first, second, weight);
         lists.get(first).add(edge);
-        lists.get(second).add(edge);
         edgeSize++;
 
         return true;

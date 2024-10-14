@@ -7,7 +7,7 @@ public interface IGraph<V, E>
 {
     //put vertices and edges in the graph
     boolean addVertex(V vertex);
-    boolean addEdge(V first, V second, E data, int weight);
+    boolean addEdge(V first, V second, int weight);
 
     //removing things
     boolean removeVertex(V vertex);
