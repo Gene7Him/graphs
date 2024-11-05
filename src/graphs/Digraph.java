@@ -111,7 +111,24 @@ public class Digraph<V, E> implements IGraph<V, E>
     @Override
     public List<V> dfs(V source)
     {
-        return null;
+        Set<V> seen = new HashSet<>();
+        List<V> result = new ArrayList<>();
+        dfs(source, seen, result);
+        return result;
+    }
+
+    private void dfs(V current, Set<V> seen, List<V> result){
+        if(!seen.contains(current)){
+            seen.add(current);
+            result.add(current);
+
+
+            List<Edge<V>> neighbors = lists.get(current);
+            for(Edge<V> incidentEdge : neighbors){
+                dfs(incidentEdge.getDest(), seen, result);
+            }
+
+        }
     }
 
     @Override

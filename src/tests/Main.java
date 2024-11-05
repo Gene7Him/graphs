@@ -47,5 +47,11 @@ public class Main {
             socialNetwork.addEdge(edge.getSource(), edge.getDest(), edge.getWeight());
             socialNetwork.addEdge(edge.getDest(), edge.getSource(), edge.getWeight());
         }
+
+        List<String> dfs = socialNetwork.dfs("Bob");
+        for (String person : dfs) {
+            System.out.println(person);
+        }
+
     }
 }
